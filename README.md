@@ -5,10 +5,10 @@ You can also truncate quotation.
 
 
 ![](screenshots/single.gif)  
-- *Single line quote*
+- *Single line quote*  
 
 ![](screenshots/multi.gif)  
-- *Multi line quote*
+- *Multi line quote*  
 
 ## Functionality
 
