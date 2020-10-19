@@ -1,6 +1,6 @@
 {
-  "quotation_file_path": "/home/jeremiah/.config/polybar/scripts/quotations/data/quotations.txt",
-  "active_record_path": "/home/jeremiah/.config/polybar/scripts/quotations/data/active_quote.json",
+  "quotation_file": "quotations.txt",
+  "active_record": "active_quote.json",
   "line_max_length": 65,
   "separator": "|",
   "left_quote": "«",
