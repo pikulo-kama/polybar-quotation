@@ -4,11 +4,11 @@ This polybar module reads file with famous quotations and shows them on bar.
 You can also truncate quotation.
 
 
-![](screenshots/single.gif)
-*Single line quote*
+![](screenshots/single.gif)  
+- *Single line quote*
 
-![](screenshots/multi.gif)
-*Multi line quote*
+![](screenshots/multi.gif)  
+- *Multi line quote*
 
 ## Functionality
 
@@ -42,7 +42,7 @@ You can also truncate quotation.
   ```sh
   bar_name="Your bar name"
   ```
- - Install fonts in ```fonts``` directory (Optional)
+ - Install fonts from ```fonts``` directory (Optional)
  
 ## Polybar config
   
