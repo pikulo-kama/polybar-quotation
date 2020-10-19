@@ -57,7 +57,7 @@ You can also truncate quotation.
   ```
   
   add to your ```[bar/name]``` section...
-  ```init  
+  ```ini 
   font-2 = "Iconic Pictograms Bold:size=11;4"
   ```
 
