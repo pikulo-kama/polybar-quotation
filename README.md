@@ -15,7 +15,7 @@ You can also truncate quotation.
 - LMB - shows next line of quote.
 - RMB - shows author.
 
-## conf.json
+## Configuration
 
 - **quotation_file** - name of file with all quotes. (should be in data/ folder)
 - **active_record** - name of file with currently visible quote. (should be in data/ folder)
@@ -24,7 +24,7 @@ You can also truncate quotation.
 - **left_quote, right_quote** - chars that will be used as citation quotes. 
 - **alt_left_quote, alt_right_quote** - chars that will wrap author's name.
 
-## Instalation
+## Installation
 
 - Clone repository
   ```sh
@@ -44,9 +44,8 @@ You can also truncate quotation.
   ```
  - Install fonts from ```fonts``` directory (Optional)
  
-## Polybar config
-  
-  Configuration looks like this
+## Module
+
   ```ini
   [module/quotation]
   type = custom/ipc
@@ -62,6 +61,10 @@ You can also truncate quotation.
   format-prefix = "Y  "
   format-underline = #15b39b
   ```
+  Make sure you have ipc enabled in your bar, if not add this line to ```[bar/name]``` section
+  ```ini 
+  enable-ipc = true
+  ```
   
   If you installed fonts then add this line to your ```[bar/name]``` section
   ```ini 
@@ -69,5 +72,4 @@ You can also truncate quotation.
   ```
   
   **NOTE:** if you want to change quote just restart your i3wm (```$mod+shift+r```)
-
   
