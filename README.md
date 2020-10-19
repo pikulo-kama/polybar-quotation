@@ -3,6 +3,18 @@
 This polybar module reads file with famous quotations and shows them on bar.
 You can also truncate quotation.
 
+*Single line quote*
+
+![](screenshots/single/line0.png)
+![](screenshots/single/author.png)
+
+*Multi line quote*
+
+![](screenshots/multi/line0.png)
+![](screenshots/multi/line1.png)
+![](screenshots/multi/line2.png)
+![](screenshots/multi/line3.png)
+![](screenshots/multi/author.png)
 
 ## Functionality
 
