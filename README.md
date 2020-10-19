@@ -36,6 +36,7 @@ You can also truncate quotation.
   ```sh
   bar_name="Your bar name"
   ```
+ - Install fonts in ```fonts``` directory (Optional)
  
 ## Polybar config
   
@@ -56,7 +57,7 @@ You can also truncate quotation.
   format-underline = #15b39b
   ```
   
-  add to your ```[bar/name]``` section...
+  If you installed fonts then add this line to your ```[bar/name]``` section
   ```ini 
   font-2 = "Iconic Pictograms Bold:size=11;4"
   ```
