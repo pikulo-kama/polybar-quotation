@@ -3,18 +3,12 @@
 This polybar module reads file with famous quotations and shows them on bar.
 You can also truncate quotation.
 
+
+![](screenshots/single.gif)
 *Single line quote*
 
-![](screenshots/single/line0.png)
-![](screenshots/single/author.png)
-
+![](screenshots/multi.gif)
 *Multi line quote*
-
-![](screenshots/multi/line0.png)
-![](screenshots/multi/line1.png)
-![](screenshots/multi/line2.png)
-![](screenshots/multi/line3.png)
-![](screenshots/multi/author.png)
 
 ## Functionality
 
@@ -73,5 +67,7 @@ You can also truncate quotation.
   ```ini 
   font-2 = "Iconic Pictograms Bold:size=11;4"
   ```
+  
+  **NOTE:** if you want to change quote just restart your i3wm (```$mod+shift+r```)
 
   
