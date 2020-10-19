@@ -20,13 +20,16 @@ You can also truncate quotation.
 
 ## Instalation
 
-- Clone repository ```sh
+- Clone repository
+  ```sh
   git clone https://github.com/pikulo-kama/polybar-quotation
   ```
-- ```sh
+- Move files to polybar scripts
+  ```sh
   mv -r polybar-quotation/ ~/.config/polybar/scripts/
   ```
-- Add this line ```sh
+- Add this line to ```~/.config/i3/config``` file
+  ```sh
   exec_always --no-startup-id $HOME/.config/polybar/scripts/polybar-quotation/quot.py --random
   ```
   
