@@ -6,15 +6,15 @@ import argparse
 import os
 
 HOME = os.environ['HOME']
-WORKDIR = f'{HOME}/.config/polybar/scripts/quotations/'
+WORKDIR = f'{HOME}/.config/polybar/scripts/polybar-quotation'
 
-configuration = load_json(f'{WORKDIR}conf.json')
+configuration = load_json(f'{WORKDIR}/conf.json')
 c = configuration
 
 QUOTATION_FILE_SEPARATOR = c['separator']
 
-QUOTATIONS_FILE = c['quotation_file_path']
-active_quotation = c['active_record_path']
+QUOTATIONS_FILE = f"{WORKDIR}/data/{c['quotation_file']}"
+active_quotation = f"{WORKDIR}/data/{c['active_record']}"
 
 lq, rq = c['left_quote'], c['right_quote']
 alq, arq = c['alt_left_quote'], c['alt_right_quote']
