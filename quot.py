@@ -2,6 +2,7 @@
 
 from helpers import *
 import random as rd
+import subprocess
 import argparse
 import os
 
@@ -15,6 +16,7 @@ QUOTATION_FILE_SEPARATOR = c['separator']
 
 QUOTATIONS_FILE = f"{WORKDIR}/data/{c['quotation_file']}"
 active_quotation = f"{WORKDIR}/data/{c['active_record']}"
+bar_name = c['bar_name']
 
 lq, rq = c['left_quote'], c['right_quote']
 alq, arq = c['alt_left_quote'], c['alt_right_quote']
@@ -30,6 +32,45 @@ class Quotation:
         self.quotes = []
         self.author = ''
         self.line = 0
+
+    @staticmethod
+    def set_status(status):
+        """
+        Sets scrolling status
+        """
+        if status not in ('PLAY', 'PAUSE'):
+            raise ValueError("Invalid Status. Use PLAY or PAUSE")
+
+        data = load_json(active_quotation)
+        data['status'] = status
+
+        save_json(active_quotation, data)
+
+    @staticmethod
+    def get_status():
+        """
+        Returns status of quote.
+        If status not set - sets PAUSE as default
+        """
+        try:
+            status = load_json(active_quotation)['status']
+        except KeyError:
+            Quotation.set_status('PAUSE')
+        return status
+
+    @staticmethod
+    def swap_status():
+        """
+        Swaps status of quote
+        """
+        status = 'PAUSE' if Quotation.get_status() == 'PLAY' else 'PLAY'
+
+        hook_id = 2 if status == 'PAUSE' else 1
+        pid_of_bar = str(subprocess.run(['pgrep', '-f', f'polybar {bar_name}'],
+                                        stdout=subprocess.PIPE).stdout)[2:-3]
+
+        os.system(f'polybar-msg -p {pid_of_bar} hook quote-control {hook_id}')
+        Quotation.set_status(status)
 
     def load(self):
         """
@@ -162,9 +203,23 @@ if __name__ == '__main__':
         metavar='random_quote'
     )
 
+    parser.add_argument(
+        '--swap',
+        nargs='?',
+        const='a',
+        metavar='swap'
+    )
+
+    parser.add_argument(
+        '--status',
+        nargs='?',
+        default='get_status',
+        const='get_status',
+        metavar='status'
+    )
+
     args = parser.parse_args()
     q = Quotation()
-
     if args.author is not None:
         print(f"{alq} {q.get_author()} {arq}")
 
@@ -189,7 +244,17 @@ if __name__ == '__main__':
         q.next_line()
 
     elif args.full_quote:
-        print(f"{lq}{q.get_full_quote()}{rq}")
+        print(f"{lq}{q.get_full_quote()}{rq}  -  {alq}{q.get_author()}{arq}")
 
     elif args.random_quote:
         Quotation.random_quote(separator=QUOTATION_FILE_SEPARATOR)
+
+    elif args.swap is not None:
+        Quotation.swap_status()
+        print(Quotation.get_status())
+
+    elif args.status == 'get_status':
+        print(Quotation.get_status())
+
+    elif args.status is not None:
+        Quotation.set_status(args.status)
