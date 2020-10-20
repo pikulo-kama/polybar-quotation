@@ -1,4 +1,5 @@
 {
+  "bar_name": "example",
   "quotation_file": "quotations.txt",
   "active_record": "active_quote.json",
   "line_max_length": 65,
