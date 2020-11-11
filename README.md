@@ -10,19 +10,22 @@ You can also truncate quotation.
 ![](screenshots/multi.gif)  
 - *Multi line quote*  
 
-## Functionality
+![](screenshots/scroll-quote.gif)  
+- *Scrolling quote*  
 
-- LMB - shows next line of quote.
-- RMB - shows author.
+
+## Dependencies
+
+- jq
+- zscroll
 
 ## Configuration
 
-- **quotation_file** - name of file with all quotes. (should be in data/ folder)
-- **active_record** - name of file with currently visible quote. (should be in data/ folder)
-- **line_max_length** - maximal count of characters that can be displayed at screen.
-- **separator** - separates lines with given separator.
-- **left_quote, right_quote** - chars that will be used as citation quotes. 
-- **alt_left_quote, alt_right_quote** - chars that will wrap author's name.
+- **active_record** - name of file with currently visible quote.
+- **line_max_length** - maximal characters visible at the screen.
+- **separator** - separates quote and author.
+- **left_quote, right_quote** - chars that wraps citation. 
+- **alt_left_quote, alt_right_quote** - chars that wraps author's name.
 
 ## Installation
 
@@ -46,6 +49,23 @@ You can also truncate quotation.
  
 ## Module
 
+
+  Make sure you have ipc enabled in your bar, if not add this line to ```[bar/name]``` section
+  ```ini 
+  enable-ipc = true
+  ```
+  
+  If you installed fonts then add this line to your ```[bar/name]``` section
+  ```ini 
+  font-2 = "Iconic Pictograms Bold:size=11;4"
+  ```
+  
+  **NOTE:** if you want to change quote just restart your i3wm (```$mod+shift+r```)  
+  
+
+### You can install two versions of module with ```toggle``` or ```scroll``` behaviour. 
+- ```Toggle``` version
+
   ```ini
   [module/quotation]
   type = custom/ipc
@@ -60,16 +80,28 @@ You can also truncate quotation.
   format-font = 3
   format-prefix = "Y  "
   format-underline = #15b39b
+
+- ```Scroll``` version
+  ```ini
+  [module/scroll-quote]
+  type = custom/script
+  tail = true
+  exec = ~/.config/polybar/scripts/polybar-quotation/scroll_quote.sh
+
+  format-font = 3
+  format-prefix = "Y  "
+  format-underline = #15b39b
   ```
-  Make sure you have ipc enabled in your bar, if not add this line to ```[bar/name]``` section
-  ```ini 
-  enable-ipc = true
+
+  ```ini
+  [module/quote-control]
+  type = custom/ipc
+  hook-0 = echo %{T3} "U" %{T-}
+  hook-1 = echo %{T3} "L" %{T-}
+
+  initial = 2
+
+  click-left = ~/.config/polybar/scripts/polybar-quotation/quot.py --swap
   ```
   
-  If you installed fonts then add this line to your ```[bar/name]``` section
-  ```ini 
-  font-2 = "Iconic Pictograms Bold:size=11;4"
-  ```
-  
-  **NOTE:** if you want to change quote just restart your i3wm (```$mod+shift+r```)
   
