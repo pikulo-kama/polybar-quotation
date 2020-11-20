@@ -15,9 +15,10 @@ You can also truncate quotation.
 
 
 ## Dependencies
+You only need to install this 
 
-- jq
-- zscroll
+- [jq](https://www.archlinux.org/packages/community/x86_64/jq/)
+- [zscroll](https://aur.archlinux.org/packages/zscroll-git/)
 
 ## Configuration
 
@@ -64,7 +65,7 @@ You can also truncate quotation.
   
 
 ### You can install two versions of module with ```toggle``` or ```scroll``` behaviour. 
-- ```Toggle``` version
+- ```Toggle version``` 
 
   ```ini
   [module/quotation]
@@ -81,7 +82,7 @@ You can also truncate quotation.
   format-prefix = "Y  "
   format-underline = #15b39b
 
-- ```Scroll``` version
+- ```Scroll version``` 
   ```ini
   [module/scroll-quote]
   type = custom/script
